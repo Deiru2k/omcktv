@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-streams nav-pills nav-justified hidden-sm hidden-xs">
+            <li ui-sref-active="active" ng-repeat="channel in channels.main">
+                <a ui-sref="main.stream({'channel': channel._id})" ng-click="active.other = false">
+                    {{ channel.name }}
+                    <span class="text-danger fa fa-circle " ng-show="channel.live"></span>
+                    <span class="fa fa-users"></span> {{channel.viewers}}
+                </a>
+            </li>
+            <li ng-class="{'active': active.other, 'disabled': (channels._meta.other_live == 0)}" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">
+                    Другие каналы <span ng-show="(channels._meta.other_live > 0)"><span class="fa fa-circle" ng-class="{'text-danger': (channels._meta.other_live > 0)}"></span> {{ channels._meta.other_live }} <span class="caret"></span></span>
+                </a>
+                <ul class="dropdown-menu" ng-show="(channels._meta.other_live > 0)">
+                    <li ui-sref-active="active" ng-repeat="channel in channels.other">
+                        <a ui-sref="main.stream({'channel': channel._id})" ng-click="active.other=true">
+                            {{ channel.name }}
+                            <span class="text-danger fa fa-circle " ng-show="channel.live"></span>
+                            <span class="fa fa-users"></span> {{channel.viewers}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="btn-group visible-xs visible-sm">
+            <button type="button" class="btn btn-default dropdown-toggle mobile-chanlist" data-toggle="dropdown">
+                Каналы <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu mobile-chanlist" role="menu">
+                <li class="dropdown-header">Основные каналы</li>
+                <li ui-sref-active="active" ng-repeat="channel in channels.main">
+                    <a ui-sref="main.stream({'channel': channel._id})">
+                        {{ channel.name }}
+                        <span class="text-danger fa fa-circle " ng-show="channel.live"></span>
+                        <span class="fa fa-users"></span> {{channel.viewers}}
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Другие каналы</li>
+                <li ui-sref-active="active" ng-repeat="channel in channels.other">
+                    <a ui-sref="main.stream({'channel': channel._id})">
+                        {{ channel.name }}
+                        <span class="text-danger fa fa-circle " ng-show="channel.live"></span>
+                        <span class="fa fa-users"></span> {{channel.viewers}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row topclear" style="height: 100%">
+    <div class="col-md-8 stream" ng-class="{'stream': chat, 'full-stream': !chat}" ui-view></div>
+    <div class="col-md-4 stream" ng-show="chat">
+        <iframe width="100%" height="100%" src="http://omck.tv/irc" frameborder="0" scrolling="no" bgcolor="#ffffff"></iframe>
+    </div>
+</div>
+<div class="row topclear">
+    <div class="col-md-12">
+        <div class="btn-group btn-group-justified hidden-xs hidden-sm">
+            <div class="btn-group">
+                <a class="btn btn-default" ng-click="schedule = !schedule">
+                    <span ng-show="schedule">Hide</span> <span ng-hide="schedule">Show</span> Schedule
+                </a>
+            </div>
+            <div class="btn-group">
+                <a class="btn btn-default" ng-click="popupChat()">Popup Chat</a>
+            </div>
+            <div class="btn-group">
+                <a class="btn btn-default" ng-click="toggleChat()">
+                    <span ng-show="chat">Hide</span> <span ng-hide="chat">Show</span> Chat
+                </a>
+            </div>
+        </div>
+        <div class="btn-group btn-group-justified visible-xs visible-sm">
+            <div class="btn-group">
+                <a class="btn btn-default" ng-click="toggleSchedule()">
+                    <span ng-show="schedule">Hide</span> <span ng-hide="schedule">Show</span> Schedule
+                </a>
+            </div>
+            <div class="btn-group">
+                <a class="btn btn-default" ng-click="toggleChat()">
+                    <span ng-show="chat">Hide</span> <span ng-hide="chat">Show</span> Chat
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row topclear" id="schedule" collapse="!schedule">
+    <div class="col-md-12">
+        <iframe src="https://www.google.com/calendar/embed?src=sr623auvi91joo5asn2es33k3s%40group.calendar.google.com&ctz=Europe/Moscow" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+</div>

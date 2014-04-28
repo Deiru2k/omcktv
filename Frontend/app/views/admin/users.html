@@ -1,0 +1,22 @@
+<h3>Добавить Пользователя</h3>
+<hr>
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label class="sr-only" for="username">Логин</label>
+        <input type="text" class="form-control" id="username" placeholder="Логин" ng-model="new_user._id">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="password">Пароль</label>
+        <input type="password" class="form-control" id="password" placeholder="Пароль" ng-model="new_user.password">
+    </div>
+    <button ng-click="newUser(new_user)" type="button" class="btn btn-success"> Добавить<span class="fa fa-plus"></span></button>
+</form>
+<h3>Пользователи</h3>
+<hr>
+<ul class="list-unstyled">
+    <li class="panel panel default" ng-repeat="user in users">
+        <div class="panel-body">
+            {{ user._id }} <div class="pull-right"><a ng-click="deleteUser(user)" class="fa fa-trash-o"></a></div>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,7 @@
+Frontend/node_modules
+Frontend/dist
+Frontend/.tmp
+Frontend/.sass-cache
+Frontend/app/bower_components
+*.pyc
+.idea

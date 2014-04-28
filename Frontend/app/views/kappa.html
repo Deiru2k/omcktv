@@ -1,0 +1,20 @@
+<style>
+    body {
+        padding: 0px;
+        background: url('/images/snoop.gif') repeat;
+    }
+    #footer {
+        display: none;
+    }
+</style>
+<div style="text-align: center;" class="kappa">
+    <div style="position: relative; right: 350px"><span class="badge badge-default" ng-click="mute()"><span class="fa fa-signal fa-2x"></span></span></div>
+    <img id="kappa" src="/images/Kappa.png" height="250px">
+</div>
+<div align="bottom">
+    <audio id="darude" controls autoplay loop style="display: none">
+        <source src="images/whatsong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <a ui-sref="main({'stream': 'hd'})"><span class="fa fa-wheelchair"></span></a>
+</div>

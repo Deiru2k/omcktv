@@ -1,0 +1,25 @@
+<object ng-show="(channel.type == 'omckhd')" type="application/x-shockwave-flash" data="http://omck.tv/assets/player.swf" width="100%" height="100%" bgcolor="#000000"
+        id="mediaspace" name="mediaspace" tabindex="0">
+    <param name="allowfullscreen" value="true">
+    <param name="allowscriptaccess" value="always">
+    <param name="seamlesstabbing" value="true">
+    <param name="wmode" value="opaque">
+    <param name="flashvars"
+           value="netstreambasepath=http%3A%2F%2Fomck.tv%2F&amp;id=mediaspace&amp;autostart=true&amp;skin=assets%2Fstormtrooper.zip&amp;loop=true&amp;file=omckws&amp;streamer=rtmp%3A%2F%2Fhd.omck.tv%2Flive&amp;image=%2Fbg%2Fomck.jpg&amp;controlbar.position=bottom&amp;display.icons=false&amp;dock=false">
+</object>
+<object type="application/x-shockwave-flash" ng-show="(channel.type == 'livestream')"
+        data="http://cdn.livestream.com/grid/LSPlayer.swf?channel={{channel.channel}}&amp;color=0xe7e7e7&amp;autoPlay=true&amp;mute=false"
+        height="100%" width="100%">
+    <param name="movie"
+           value="http://cdn.livestream.com/grid/LSPlayer.swf?channel={{channel.channel}}&amp;color=0xe7e7e7&amp;autoPlay=true&amp;mute=false">
+    <param name="wmode" value="transparent">
+    <param name="allowFullscreen" value="true">
+</object>
+<object type="application/x-shockwave-flash" ng-show="(channel.type == 'twitch')" height="100%" width="100%" id="live_embed_player_flash"
+        data="http://www.twitch.tv/widgets/live_embed_player.swf?channel={{channel.channel}}" bgcolor="#000000">
+    <param name="allowFullScreen" value="true"/>
+    <param name="allowScriptAccess" value="always"/>
+    <param name="allowNetworking" value="all"/>
+    <param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf"/>
+    <param name="flashvars" value="hostname=www.twitch.tv&channel={{channel.channel}}&auto_play=true&start_volume=25&image=/images/omck.jpg"/>
+</object>

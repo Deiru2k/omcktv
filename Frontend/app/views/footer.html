@@ -1,0 +1,20 @@
+<div class="row" id="footer">
+    <div class="col-md-12">
+        <hr class="footer">
+        <a ui-sref="faq"><span class="fa fa-question-circle"></span> FAQ</a>
+        |
+        <a href="http://twitter.com/omcktv" target="_blank"><span class="fa fa-twitter-square"></span> Twitter</a>
+        |
+        <a href="http://youtube.com/user/theomcktv" target="_blank"><span class="fa fa-youtube-square"></span> YouTube (Повторы)</a>
+        <div class="pull-right">
+            <a ng-click="toggleBackground()"><span class="fa fa-picture-o" ng-class="{'del': background}"></span> <span ng-show="background">Скрыть</span><span ng-hide="background">Показать</span> Обои</a>
+            |
+            <a ng-hide="user" ng-click="openLogin()"><span class="fa fa-lock"></span> Логин</a>
+            <span ng-show="user">
+                <span class="fa fa-user"></span> <b>{{ user._id }}</b>:
+                <a ui-sref="admin"><span class="fa fa-dashboard"></span> Админ-Панель</a>
+                <a ng-click="logout()"><span class="fa fa-unlock-alt"></span> Выйти</a>
+            </span>
+        </div>
+    </div>
+</div>

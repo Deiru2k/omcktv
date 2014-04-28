@@ -1,0 +1,24 @@
+<style>
+    body {
+        background-image: none;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-12">
+        <a ui-sref="main"><span class="fa fa-angle-left"></span> Назад на Omck.tv</a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked text-center">
+            <li ui-sref-active="active"><a ui-sref="admin.channels">Каналы</a></li>
+            <li><a><span class="text-warning">Марафоны</span></a></li>
+            <li><a><span class="text-warning">Новости</span></a></li>
+            <li ui-sref-active="active"><a ui-sref="admin.users">Пользователи</a></li>
+        </ul>
+    </div>
+    <div class="col-md-10" ui-view>
+        Nothing here but us, chickens.
+    </div>
+</div>
